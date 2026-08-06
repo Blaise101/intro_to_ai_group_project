@@ -8,5 +8,16 @@ from sklearn.metrics import (
 
 
 def evaluate_model(y_true, y_pred):
-    """Evaluates model predictions."""
-    pass
+    """
+    Computes and displays classification metrics.
+    """
+
+    print("\n================ MODEL EVALUATION REPORT ================")
+
+    print(
+        classification_report(
+            y_true,
+            y_pred,
+            target_names=["Legitimate (0)", "Fraudulent (1)"],
+        )
+    )
