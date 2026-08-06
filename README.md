@@ -50,9 +50,11 @@ To ensure seamless coordination during the project presentation, responsibilitie
 
 #### 1. Set Up a Virtual Environment
 
+```bash
+
 python -m venv aiprojectenv
 .\aiprojectenv\Scripts\Activate.ps1
 
 _(Note: If PowerShell throws a script execution policy error, run `Set-ExecutionPolicy Unrestricted -Scope Process` first, then activate)._
-
+```
 #### 2. Install Required Dependencies
