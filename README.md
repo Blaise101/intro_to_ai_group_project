@@ -77,6 +77,6 @@ _(Note: If PowerShell throws a script execution policy error, run `Set-Execution
     python -m streamlit run app.py
 ```
 
-**After running the command:**
+**After running the command:**  
     1. The terminal will display your Local URL (typically http://localhost:8501).  
     2. A browser tab will automatically open displaying the interactive dashboard.
