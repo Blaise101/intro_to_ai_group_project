@@ -27,7 +27,9 @@ To ensure seamless coordination during the project presentation, responsibilitie
 
 ---
 
-### Directories
+### Development
+
+#### 1. Directories
 
 momo-fraud-detector/
 │
@@ -43,3 +45,13 @@ momo-fraud-detector/
 ├── app.py                      # Interactive Streamlit dashboard
 ├── requirements.txt            # Python dependencies
 └── README.md                   # Setup guide and usage instructions
+
+
+#### 1. Set Up a Virtual Environment
+
+python -m venv aiprojectenv
+.\aiprojectenv\Scripts\Activate.ps1
+
+_(Note: If PowerShell throws a script execution policy error, run `Set-ExecutionPolicy Unrestricted -Scope Process` first, then activate)._
+
+#### 2. Install Required Dependencies
