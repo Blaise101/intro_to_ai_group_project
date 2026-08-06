@@ -1,4 +1,4 @@
-# 🛡️ Mobile Money (MoMo) Anomaly Fraud Detector# 🛡️ Mobile Money (MoMo) Anomaly Fraud Detector
+# 🛡️ Mobile Money (MoMo) Anomaly Fraud Detector
 
 ---
 
@@ -51,10 +51,32 @@ To ensure seamless coordination during the project presentation, responsibilitie
 #### 1. Set Up a Virtual Environment
 
 ```bash
-
-python -m venv aiprojectenv
-.\aiprojectenv\Scripts\Activate.ps1
-
-_(Note: If PowerShell throws a script execution policy error, run `Set-ExecutionPolicy Unrestricted -Scope Process` first, then activate)._
+    python -m venv aiprojectenv
+    .\aiprojectenv\Scripts\Activate.ps1
 ```
+_(Note: If PowerShell throws a script execution policy error, run `Set-ExecutionPolicy Unrestricted -Scope Process` first, then activate)._
+
+
 #### 2. Install Required Dependencies
+
+```bash
+    pip install -r requirements.txt
+```
+
+#### 2.1  Development
+ 
+  - **Remy:** model.py
+  - **Egide:**  data_loader.py
+  - **Blaise:**  evaluate.py
+  - **Fida:**  app.py
+
+
+#### 3. Run the application
+
+```bash
+    python -m streamlit run app.py
+```
+
+**After running the command:**
+    1. The terminal will display your Local URL (typically http://localhost:8501).  
+    2. A browser tab will automatically open displaying the interactive dashboard.
