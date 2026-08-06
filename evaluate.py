@@ -23,3 +23,17 @@ def evaluate_model(y_true, y_pred):
     print("=========================================================\n")
     
     return {"precision": precision, "recall": recall, "f1": f1, "confusion_matrix": cm}
+
+def plot_confusion_matrix(cm, save_path=None):
+    """Generates a visual confusion matrix plot for the final report."""
+    plt.figure(figsize=(6, 4))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Reds', 
+                xticklabels=['Legitimate', 'Fraud'], 
+                yticklabels=['Legitimate', 'Fraud'])
+    plt.xlabel('Predicted Label')
+    plt.ylabel('True Label')
+    plt.title('Mobile Money Fraud Detection Confusion Matrix')
+    plt.tight_layout()
+    if save_path:
+        plt.savefig(save_path)
+    plt.show()
