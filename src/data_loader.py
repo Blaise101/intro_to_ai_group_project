@@ -1,3 +1,4 @@
+from pathlib import Path
 import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.model_selection import train_test_split
@@ -9,9 +10,11 @@ def load_and_preprocess_data(file_path, test_size=0.2, random_state=42):
     Loads transaction data, cleans features, handles encoding & scaling,
     and returns split datasets ready for Isolation Forest.
     """
+    file_path = Path(file_path)
+    if not file_path.exists():
+        raise FileNotFoundError(f"Dataset not found: {file_path}")
     print("Loading transaction dataset...")
     df = pd.read_csv(file_path)
-
     # If dataset has PaySim columns, process them
     if 'type' in df.columns:
         # Drop non-informative string columns
