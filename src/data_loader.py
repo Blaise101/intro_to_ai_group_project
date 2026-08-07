@@ -13,6 +13,9 @@ def load_and_preprocess_data(file_path, test_size=0.2, random_state=42):
     file_path = Path(file_path)
     if not file_path.exists():
         raise FileNotFoundError(f"Dataset not found: {file_path}")
+    if not 0 < test_size < 1:
+        raise ValueError("test_size must be between 0 and 1.")
+
     print("Loading transaction dataset...")
     df = pd.read_csv(file_path)
     # If dataset has PaySim columns, process them
