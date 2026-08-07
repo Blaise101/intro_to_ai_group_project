@@ -43,25 +43,31 @@ def load_and_preprocess_data(file_path, test_size=0.2, random_state=42):
             ]
         )
         
-        X_processed = preprocessor.fit_transform(X)
         
     else:
         # Fallback for standard numerical PCA datasets (like Kaggle Credit Card)
         y = df['Class'] if 'Class' in df.columns else None
         X = df.drop(columns=['Class']) if 'Class' in df.columns else df.copy()
         
-        scaler = StandardScaler()
-        X_processed = scaler.fit_transform(X)
-        preprocessor = scaler
+        preprocessor = StandardScaler()
 
     # Train/Test Split
     if y is not None:
         X_train, X_test, y_train, y_test = train_test_split(
-            X_processed, y, test_size=test_size, random_state=random_state, stratify=y
+            X, y, test_size=test_size, random_state=random_state, stratify=y
         )
-        print(f"Data preprocessed successfully. Train shape: {X_train.shape}, Test shape: {X_test.shape}")
+
+        X_train = preprocessor.fit_transform(X_train)
+        X_test = preprocessor.transform(X_test)
+
+        print(
+            f"Data preprocessed successfully. "
+            f"Train shape: {X_train.shape}, Test shape: {X_test.shape}"
+        )
+
         return X_train, X_test, y_train, y_test, preprocessor
     else:
+        X_processed = preprocessor.fit_transform(X)
         return X_processed, preprocessor
 
 if __name__ == "__main__":
