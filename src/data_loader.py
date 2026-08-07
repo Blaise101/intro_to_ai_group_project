@@ -18,11 +18,14 @@ def load_and_preprocess_data(file_path, test_size=0.2, random_state=42):
 
     print("Loading transaction dataset...")
     df = pd.read_csv(file_path)
+    if df.empty:
+             raise ValueError("Dataset is empty.")
     # If dataset has PaySim columns, process them
     if 'type' in df.columns:
         # Drop non-informative string columns
         drop_cols = [c for c in ['nameOrig', 'nameDest', 'isFlaggedFraud'] if c in df.columns]
         df = df.drop(columns=drop_cols)
+
         
         # Separate target label for evaluation
         y = df['isFraud'] if 'isFraud' in df.columns else None
