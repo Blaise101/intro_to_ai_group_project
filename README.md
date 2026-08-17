@@ -31,21 +31,29 @@ To ensure seamless coordination during the project presentation, responsibilitie
 
 #### 1. Directories
 
-```bash
-    momo-fraud-detector/
-    │
-    ├── data/
-    │   └── dataset.csv             # Kaggle PaySim / Credit Card sample dataset
-    │
-    ├── src/
-    │   ├── __init__.py
-    │   ├── data_loader.py          # Data ingestion & scaling pipeline
-    │   ├── model.py                # Isolation Forest training & inference logic
-    │   └── evaluate.py             # Metrics calculation & confusion matrix generator
-    │
-    ├── app.py                      # Interactive Streamlit dashboard
-    ├── requirements.txt            # Python dependencies
-    └── README.md                   # Setup guide and usage instructions
+```C:.
+│   .gitignore
+│   app.py
+│   README.md
+│   requirements.txt
+│
+├───data
+│       dataset.csv
+│       model_data.csv
+│
+├───models
+│       isolation_forest.pkl
+│       preprocessor.pkl
+│       test_results.csv
+│
+├───notebooks
+│       eda.ipynb
+│
+└───src
+        data_loader.py
+        evaluate.py
+        model.py
+
 ```
 
 #### 1. Set Up a Virtual Environment
